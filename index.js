@@ -54,7 +54,8 @@ function reponseTreatment(response){
   window = {};
   if(process.platform == 'linux'){
     response = response.replace(/(WM_CLASS|WM_NAME)(\(\w+\)\s=\s)/g,'').split("\n",2);
-    window.app = response[0];
+    window.app = response[0].split(',')[0].replace(/"/g, '').trim()
+    window.appClass = response[0].split(',')[1].replace(/"/g, '').trim()
     window.title = response[1];
   }else if (process.platform == 'win32'){
     response = response.replace(/(@{ProcessName=| AppTitle=)/g,'').slice(0,-1).split(';',2);
