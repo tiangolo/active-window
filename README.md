@@ -10,6 +10,8 @@ This module exports a `getActiveWindow()` function that takes as parameters:
 * `callback`: a function to process the results, given as a parameter to that callback. The parameter will be a `window` object with:
   * `app`: the name of the app running, the process name (e.g. `chrome`).
   * `title`: the title of the active window (e.g. `Facebook`).
+* `repeats` (defaults to `1`): The number of times it should get the active window.
+* `interval` (defaults to `0`): the interval in seconds between each request.
 
 The `return` of the `getActiveWindow()` function is a Node.js [`ChildProcess`](https://nodejs.org/api/child_process.html#child_process_class_childprocess) object. So you can, for example, kill that child process with the `.kill()` method.
 
@@ -28,7 +30,7 @@ callback = function(window){
 }
 /*Watch the active window
   @callback
-  @number of requests; infinity = -1
+  @repeats of requests; infinity = -1
   @interval between requests
 */
 //monitor.getActiveWindow(callback,-1,1);
