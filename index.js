@@ -43,6 +43,8 @@ exports.getActiveWindow = function(callback,repeats,interval){
   });
 
   ls.stdin.end();
+
+  return ls;
 }
 
 /**
