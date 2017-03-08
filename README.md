@@ -38,8 +38,8 @@ callback = function(window){
 //Get the current active window
 var monitorProcess = monitor.getActiveWindow(callback);
 
-// After some time, or right before closing your app,
-// you might want to kill the subprocess
+// If you used -1 in the "repeats" parameter (infinity), after some time
+// or right before closing your app, you might want to kill the subprocess
 monitorProcess.kill();
 
 ```
